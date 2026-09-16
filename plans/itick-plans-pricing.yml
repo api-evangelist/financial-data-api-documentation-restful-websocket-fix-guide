@@ -1,0 +1,61 @@
+generated: '2026-09-16'
+method: searched
+source: https://itick.org/en/pricing
+currency: USD
+billing_period: month
+plan_count: 4
+note: >-
+  Four self-serve subscription tiers, billed monthly, plus a customizable
+  institutional option ("Contact"/"Customizable" for FIX and bespoke data). All
+  paid tiers were showing a 20% promotional discount on 2026-09-16 (original ->
+  discounted below). Data-scope features (End-of-Day, Historical, Reference,
+  Fundamentals, Corporate Actions, Technical Indicators, Market News) are listed
+  across tiers; the quantitative differentiators are the rate and WebSocket caps.
+plans:
+  - name: Free
+    price: 0
+    currency: USD
+    period: month
+    audience: Personal use only; time-limited free trial.
+    limits:
+      rest_calls_per_minute: 5
+      websocket_connections: 1
+      websocket_subscriptions: 3
+      data_freshness: End of Day (some data sets)
+  - name: Base
+    price: 79
+    list_price: 99
+    currency: USD
+    period: month
+    discount: 20% off (promo)
+    audience: Personal use.
+    limits:
+      rest_calls_per_minute: 120
+      websocket_connections: 3
+      websocket_subscriptions: 200
+  - name: Professional
+    price: 159
+    list_price: 199
+    currency: USD
+    period: month
+    discount: 20% off (promo)
+    audience: Personal and business use.
+    limits:
+      rest_calls_per_minute: 600
+      websocket_connections: 6
+      websocket_subscriptions: 500
+  - name: Premium
+    price: 319
+    list_price: 399
+    currency: USD
+    period: month
+    discount: 20% off (promo)
+    audience: Business and personal use.
+    limits:
+      rest_calls_per_minute: 1200
+      websocket_connections: 12
+      websocket_subscriptions: 2000
+custom:
+  detail: >-
+    Institutional/professional users can negotiate customized data solutions and
+    FIX access (contact via Telegram @iticksupport / WhatsApp / support@itick.org).

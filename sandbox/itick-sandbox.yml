@@ -1,0 +1,27 @@
+generated: '2026-09-16'
+method: searched
+source: https://docs.itick.org/en/api-url and https://itick.org/en/pricing
+summary: >-
+  iTick provides a free-trial environment on a distinct host that mirrors the
+  production REST and WebSocket surface. There are no synthetic test symbols,
+  test clocks, or fixture tokens - the trial serves real market data at a reduced
+  rate limit, authenticated with the same account API Key.
+environments:
+  - name: Free trial
+    host: api-free.itick.org
+    rest_base: https://api-free.itick.org/{product}
+    websocket_base: wss://api-free.itick.org/{product}
+    auth: Same `token` header / account API Key as production.
+    note: >-
+      Real (not mocked) data. The Free plan caps REST at 5 calls/minute, 1
+      WebSocket connection, and 3 subscriptions, and is end-of-day for some data
+      sets. See plans/itick-plans-pricing.yml.
+  - name: Production
+    host: api.itick.org
+    rest_base: https://api.itick.org/{product}
+    websocket_base: wss://api.itick.org/{product}
+test_fixtures:
+  detail: >-
+    None published. No test cards/accounts (not a payments API) and no simulated
+    symbols; the trial exercises live market data.
+products: [crypto, forex, indices, stock, future, fund]

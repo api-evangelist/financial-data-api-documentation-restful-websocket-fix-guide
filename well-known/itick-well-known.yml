@@ -1,0 +1,49 @@
+generated: '2026-09-16'
+method: probed
+source: Live probes on 2026-09-16 of /.well-known/* across every known iTick host.
+note: >-
+  No .well-known document is served on any iTick host. The primary/website/docs
+  hosts (itick.org, www.itick.org, docs.itick.org) answer every /.well-known/*
+  path with a 301/302 redirect to the site root (SPA catch-all), which is not a
+  document. The API and agent hosts (api.itick.org, api-free.itick.org,
+  agent.itick.org) return 404 on all paths. No WellKnown/SecurityTxt pointer is
+  emitted because no path returned a real 200 document.
+hosts:
+  - host: itick.org
+    documents:
+      - { path: /.well-known/security.txt, status: 302, file: null }
+      - { path: /.well-known/openid-configuration, status: 301, file: null }
+      - { path: /.well-known/oauth-authorization-server, status: 301, file: null }
+      - { path: /.well-known/oauth-protected-resource, status: 301, file: null }
+      - { path: /.well-known/api-catalog, status: 301, file: null }
+      - { path: /.well-known/ai-plugin.json, status: 302, file: null }
+  - host: www.itick.org
+    documents:
+      - { path: /.well-known/security.txt, status: 302, file: null }
+      - { path: /.well-known/openid-configuration, status: 301, file: null }
+      - { path: /.well-known/oauth-authorization-server, status: 301, file: null }
+      - { path: /.well-known/api-catalog, status: 301, file: null }
+  - host: api.itick.org
+    documents:
+      - { path: /.well-known/security.txt, status: 404, file: null }
+      - { path: /.well-known/openid-configuration, status: 404, file: null }
+      - { path: /.well-known/oauth-authorization-server, status: 404, file: null }
+      - { path: /.well-known/oauth-protected-resource, status: 404, file: null }
+      - { path: /.well-known/api-catalog, status: 404, file: null }
+      - { path: /.well-known/ai-plugin.json, status: 404, file: null }
+  - host: docs.itick.org
+    documents:
+      - { path: /.well-known/security.txt, status: 302, file: null }
+      - { path: /.well-known/openid-configuration, status: 301, file: null }
+      - { path: /.well-known/api-catalog, status: 301, file: null }
+      - { path: /.well-known/ai-plugin.json, status: 302, file: null }
+  - host: agent.itick.org
+    documents:
+      - { path: /.well-known/security.txt, status: 404, file: null }
+      - { path: /.well-known/oauth-authorization-server, status: 404, file: null }
+      - { path: /.well-known/agent-card.json, status: 404, file: null }
+  - host: api-free.itick.org
+    documents:
+      - { path: /.well-known/security.txt, status: 404, file: null }
+      - { path: /.well-known/oauth-authorization-server, status: 404, file: null }
+      - { path: /.well-known/api-catalog, status: 404, file: null }

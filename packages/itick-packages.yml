@@ -1,0 +1,143 @@
+generated: '2026-09-16'
+method: searched
+source: >-
+  Registry metadata (registry.npmjs.org, pypi.org, proxy.golang.org) and the
+  github.com/itick-org organization, cross-referenced with the SDK examples in
+  https://docs.itick.org/en/rest-api/crypto/crypto-kline.md
+note: >-
+  All client libraries are first-party, published under the github.com/itick-org
+  organization. Node and browser SDKs are on npm; the Python SDK and the MCP
+  server are on PyPI; the Go SDK resolves via the Go module proxy. The Java, PHP
+  and C++ SDKs are distributed as source only (no Maven Central / Packagist
+  entry), so their versions are read from GitHub tags/pushes rather than a
+  package registry.
+packages:
+  - name: '@itick/node-sdk'
+    ecosystem: npm
+    registry: npm
+    url: https://www.npmjs.com/package/@itick/node-sdk
+    repository: https://github.com/itick-org/nodejs-sdk
+    official: true
+    version: 1.0.3
+    published: '2026-04-11'
+    language: TypeScript
+    description: >-
+      Official iTick API SDK for Node.js. REST (OHLCV/K-line) plus low-latency
+      WebSocket across stocks, forex, crypto, indices, futures, funds.
+  - name: '@itick/browser-sdk'
+    ecosystem: npm
+    registry: npm
+    url: https://www.npmjs.com/package/@itick/browser-sdk
+    repository: https://github.com/itick-org/javascript-sdk
+    official: true
+    version: 1.0.2
+    published: '2026-04-11'
+    language: JavaScript
+    description: Official iTick API SDK for the browser (REST + WebSocket).
+  - name: itick-sdk
+    ecosystem: pypi
+    registry: pypi
+    url: https://pypi.org/project/itick-sdk/
+    repository: https://github.com/itick-org/python-sdk
+    official: true
+    version: 0.1.0
+    published: '2026-04-25'
+    language: Python
+    description: >-
+      iTick SDK for forex, stock and crypto APIs. Imported as `itick` (from
+      itick.sdk import Client) per the docs examples.
+  - name: github.com/itick-org/go-sdk
+    ecosystem: go
+    registry: go
+    url: https://pkg.go.dev/github.com/itick-org/go-sdk
+    repository: https://github.com/itick-org/go-sdk
+    official: true
+    version: v0.0.0-20260517121531-1c446062090d
+    published: '2026-05-17'
+    language: Go
+    note: >-
+      Untagged module; the Go proxy resolves a pseudo-version from the latest
+      commit rather than a semantic release.
+    description: Go version of the iTick API SDK (REST + WebSocket).
+  - name: itick-java-sdk
+    ecosystem: maven
+    registry: github
+    url: https://github.com/itick-org/java-sdk/releases/tag/0.1.1
+    repository: https://github.com/itick-org/java-sdk
+    official: true
+    version: 0.1.1
+    published: '2026-05-09'
+    language: Java
+    note: >-
+      Distributed as a GitHub release only; not published to Maven Central, so
+      there is no coordinate to depend on directly.
+    description: Java version of the iTick API SDK (REST + WebSocket).
+  - name: itick-php-sdk
+    ecosystem: composer
+    registry: github
+    url: https://github.com/itick-org/php-sdk
+    repository: https://github.com/itick-org/php-sdk
+    official: true
+    version: null
+    published: '2026-03-03'
+    language: PHP
+    note: >-
+      Source-only; not on Packagist (repo.packagist.org returns 404), so it has
+      no released version and must be vendored from git. Date is the last push.
+    description: PHP version of the iTick API SDK (REST + WebSocket).
+  - name: itick-cpp-sdk
+    ecosystem: cpp
+    registry: github
+    url: https://github.com/itick-org/cpp-sdk
+    repository: https://github.com/itick-org/cpp-sdk
+    official: true
+    version: null
+    published: '2026-03-03'
+    language: C++
+    note: Source-only, no package registry or tagged release. Date is the last push.
+    description: C++ version of the iTick API SDK (REST + WebSocket).
+  - name: itick-mcp
+    ecosystem: pypi
+    registry: pypi
+    url: https://pypi.org/project/itick-mcp/
+    repository: https://github.com/itick-org/itick-mcp-server
+    official: true
+    version: 0.1.1
+    published: '2026-03-24'
+    language: Python
+    description: >-
+      Official iTick MCP server (stdio), run via `uvx itick-mcp`. Exposes the
+      REST API as MCP tools. See mcp/itick-mcp.yml.
+  - name: '@itick/chat-core'
+    ecosystem: npm
+    registry: npm
+    url: https://www.npmjs.com/package/@itick/chat-core
+    repository: https://github.com/itick-org/chat-agent-sdk
+    official: true
+    version: 1.0.1
+    published: '2026-08-05'
+    language: TypeScript
+    description: >-
+      AI Chat SDK core - a ShadowDOM-based embeddable chat UI with style
+      isolation, backed by iTick's Agent Streaming Chat API. See
+      components/itick-components.yml.
+  - name: '@itick/chat-react'
+    ecosystem: npm
+    registry: npm
+    url: https://www.npmjs.com/package/@itick/chat-react
+    repository: https://github.com/itick-org/chat-agent-sdk
+    official: true
+    version: 1.0.1
+    published: '2026-08-05'
+    language: TypeScript
+    description: React 18 wrapper for the iTick AI Chat SDK.
+  - name: '@itick/chat-vue'
+    ecosystem: npm
+    registry: npm
+    url: https://www.npmjs.com/package/@itick/chat-vue
+    repository: https://github.com/itick-org/chat-agent-sdk
+    official: true
+    version: 1.0.1
+    published: '2026-08-05'
+    language: TypeScript
+    description: Vue 3 wrapper for the iTick AI Chat SDK.

@@ -1,0 +1,83 @@
+generated: '2026-09-16'
+method: searched
+source: >-
+  https://docs.itick.org/en/sdk/mcp-server (official MCP Server docs) plus a live
+  probe of https://api.itick.org/mcp
+name: iTick MCP Server
+description: >-
+  Official iTick MCP server exposing the REST market-data API as MCP tools for
+  basics, stocks, indices, futures, funds, forex and crypto. WebSocket and FIX
+  surfaces are explicitly NOT implemented by the MCP server (REST-over-HTTP-GET
+  only).
+deployment:
+  mode: both
+  endpoint: https://api.itick.org/mcp
+  install: uvx itick-mcp
+  package: https://pypi.org/project/itick-mcp/
+  auth: api-key
+  verified: probed
+  note: >-
+    Remote hosted endpoint https://api.itick.org/mcp returned HTTP 401 {"message":
+    "Missing API key in request"} to an anonymous tools/list POST on 2026-09-16 -
+    a real, live, API-key-gated MCP surface. The same server also ships as a local
+    stdio executable run with `uvx itick-mcp` (Cursor / Claude Desktop / OpenCode),
+    configured with a TOKEN env var and optional ITICK_API_BASE. HTTP and SSE
+    transports are also supported (python3 -m itick_mcp_server --transport http|sse).
+auth:
+  type: api-key
+  header: token
+  env: TOKEN
+  note: >-
+    The MCP tools call the REST API, which authenticates with a `token` request
+    header. The live tools/list schema is auth-gated; tool names and REST bindings
+    below are transcribed from the official MCP Server documentation, not from an
+    authenticated introspection. inputSchemas require an authenticated tools/list.
+tools:
+  - name: symbolList
+    rest: GET /symbol/list
+    category: basics
+  - name: symbolHolidays
+    rest: GET /symbol/v2/holidays
+    category: basics
+  - name: stockInfo
+    rest: GET /stock/info
+    category: stock
+  - name: stockIpo
+    rest: GET /stock/ipo
+    category: stock
+  - name: stockSplit
+    rest: GET /stock/split
+    category: stock
+  # Per-product-line tools; {prefix} in {stock, crypto, forex, indices, future, fund}
+  - name: '{prefix}Tick'
+    rest: GET /{prefix}/tick
+    category: market-data
+    note: Single-symbol latest trade.
+  - name: '{prefix}Quote'
+    rest: GET /{prefix}/quote
+    category: market-data
+  - name: '{prefix}Depth'
+    rest: GET /{prefix}/depth
+    category: market-data
+  - name: '{prefix}Kline'
+    rest: GET /{prefix}/kline
+    category: market-data
+    note: >-
+      K-line params: k_type (encoded as kType in the request), optional et (ms
+      timestamp), limit.
+  - name: '{prefix}Ticks'
+    rest: GET /{prefix}/ticks
+    category: market-data
+    note: Batch; `codes` is a comma-separated list.
+  - name: '{prefix}Quotes'
+    rest: GET /{prefix}/quotes
+    category: market-data
+  - name: '{prefix}Depths'
+    rest: GET /{prefix}/depths
+    category: market-data
+  - name: '{prefix}Klines'
+    rest: GET /{prefix}/klines
+    category: market-data
+tool_count_note: >-
+  6 basics/stock tools + 8 tools x 6 product lines (48) = 54 concrete tools, plus
+  stockKline retained as an alias. Not implemented: WebSocket push and FIX.

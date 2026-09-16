@@ -1,0 +1,35 @@
+generated: '2026-09-16'
+method: derived
+source: >-
+  Derived from the iTick REST docs (request/response shapes, auth), the error
+  catalog, and the MCP/FIX documentation at https://docs.itick.org/en.
+note: >-
+  iTick's public REST/WebSocket surface implements no cross-cutting web-API
+  standard: authentication is a bespoke `token` header (not OAuth2/OIDC) and
+  errors use a custom {code,msg,data} envelope (not RFC 9457). Its one financial
+  domain standard, FIX, is documented but institutional-only with no public
+  contract or endpoint, so it cannot be independently verified here.
+conformance:
+  - id: oauth2
+    conforms: false
+    evidence: >-
+      Auth is a static per-account `token` header; no OAuth2 flow is documented
+      (https://docs.itick.org/en/getting-started).
+  - id: oidc
+    conforms: false
+    evidence: No OpenID Connect / openid-configuration surface (all hosts 301/404).
+  - id: rfc9457
+    conforms: false
+    evidence: >-
+      Errors use a custom envelope {code,msg,data} with an E-series code table,
+      not application/problem+json (https://docs.itick.org/en/error-code.md).
+  - id: fix-protocol
+    conforms: false
+    domain_standard: true
+    evidence: >-
+      A FIX (Financial Information eXchange) API is advertised for institutional
+      clients (https://docs.itick.org/en/api-url,
+      https://docs.itick.org/en/sdk/mcp-server) but no public FIX endpoint,
+      session config, or machine-readable contract is published, so conformance
+      cannot be verified from the contract. Recorded as a documented, gated claim
+      rather than a verified conformance.

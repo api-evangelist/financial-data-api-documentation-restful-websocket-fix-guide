@@ -1,0 +1,41 @@
+generated: '2026-09-16'
+method: searched
+source: https://itick.org/en/pricing and https://docs.itick.org/en/error-code.md
+summary: >-
+  Rate limits are enforced per account and vary by subscription plan. Two limit
+  dimensions: REST requests per minute and WebSocket connection/subscription
+  caps. No rate-limit response headers (X-RateLimit-*/RateLimit-*/Retry-After)
+  are documented; exhaustion of the subscription cap surfaces as error E003.
+limit_count: 4
+headers:
+  documented: none
+  note: >-
+    No standard rate-limit response headers are documented. Could not observe
+    live headers because all endpoints require an authenticated `token`.
+limits:
+  - plan: Free
+    scope: per-account
+    rest_per_minute: 5
+    websocket_connections: 1
+    websocket_subscriptions: 3
+  - plan: Base
+    scope: per-account
+    rest_per_minute: 120
+    websocket_connections: 3
+    websocket_subscriptions: 200
+  - plan: Professional
+    scope: per-account
+    rest_per_minute: 600
+    websocket_connections: 6
+    websocket_subscriptions: 500
+  - plan: Premium
+    scope: per-account
+    rest_per_minute: 1200
+    websocket_connections: 12
+    websocket_subscriptions: 2000
+exhaustion:
+  error_code: E003
+  message: exceeding the maximum subscription limit
+  detail: >-
+    Returned when the WebSocket subscription cap is exceeded; remediation is to
+    reduce subscriptions or upgrade the plan.

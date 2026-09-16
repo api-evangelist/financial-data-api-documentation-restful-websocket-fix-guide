@@ -1,0 +1,34 @@
+generated: '2026-09-16'
+method: searched
+source: https://docs.itick.org/en/error-code.md
+format: custom
+envelope:
+  note: >-
+    Responses are wrapped in a custom envelope, not RFC 9457 problem+json. Shape:
+    {"code": <int>, "msg": <string|null>, "data": <payload>}. code 0 indicates
+    success; a non-zero code plus an error string in the E### series signals a
+    fault. The documented error-code table uses E-prefixed codes that are distinct
+    from the envelope's numeric `code` field.
+fields:
+  code: Numeric status; 0 = success.
+  msg: Human-readable message or null on success.
+  data: The result payload (array or object).
+problem_types:
+  - code: E001
+    title: not found this produce
+    meaning: >-
+      The target product/symbol does not exist. Check that the product code is
+      correct, or contact iTick support.
+    remediation: Verify the `code` and `region` parameters against /symbol/list.
+  - code: E002
+    title: auth failed
+    meaning: Authorization failed - the `token` header is missing or invalid.
+    remediation: Supply a valid API key in the `token` request header.
+  - code: E003
+    title: exceeding the maximum subscription limit
+    meaning: >-
+      More than the maximum number of subscriptions allowed by the current plan.
+    remediation: >-
+      Reduce concurrent subscriptions or upgrade the plan (see
+      plans/itick-plans-pricing.yml); WebSocket subscription caps range from 3
+      (Free) to 2000 (Premium).

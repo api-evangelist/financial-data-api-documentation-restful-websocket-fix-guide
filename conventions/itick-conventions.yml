@@ -1,0 +1,60 @@
+generated: '2026-09-16'
+method: searched
+source: >-
+  https://docs.itick.org/en/getting-started, /en/api-url,
+  /en/rest-api/crypto/crypto-kline.md, /en/rest-api/basics/symbol-list.md,
+  /en/error-code.md
+summary: >-
+  iTick is a read-only market-data API: every documented REST operation is an
+  HTTP GET returning quotes, order-book depth, ticks or K-lines. There is no
+  create/update/delete surface, so the write-oriented agent-safety dimensions
+  (idempotency keys, dry-run, reversibility) do not apply.
+auth:
+  style: api-key
+  header: token
+  detail: See authentication/itick-authentication.yml.
+base_urls:
+  production: https://api.itick.org/{product}
+  free_trial: https://api-free.itick.org/{product}
+  websocket: wss://api.itick.org/{product}
+  products: [crypto, forex, indices, stock, future, fund]
+pagination:
+  style: limit-count
+  params:
+    limit: Number of rows to return (K-line/tick queries).
+    et: Optional end timestamp in milliseconds (defaults to now).
+  detail: >-
+    Historical queries page by `limit` plus an optional `et` (end) millisecond
+    timestamp; there is no cursor or offset token documented.
+error_envelope:
+  shape: '{ "code": <int>, "msg": <string|null>, "data": <payload> }'
+  success_code: 0
+  detail: >-
+    Not RFC 9457. Faults use an E-series code catalog (see
+    errors/itick-problem-types.yml).
+batching:
+  detail: >-
+    Batch variants exist for every read (`/{product}/ticks`, `/quotes`,
+    `/depths`, `/klines`); `codes` is a comma-separated symbol list.
+versioning:
+  detail: >-
+    No global version prefix; most paths are unversioned. One path is explicitly
+    v2 (/symbol/v2/holidays). See lifecycle/itick-lifecycle.yml.
+rate_limit_signaling:
+  detail: >-
+    Limits are enforced per-plan by request-per-minute and WebSocket subscription
+    caps. No X-RateLimit-*/RateLimit-* response headers are documented. See
+    rate-limits/itick-rate-limits.yml.
+idempotency:
+  coverage: na
+  detail: >-
+    Read-only API - all operations are HTTP GET (naturally idempotent) and there
+    is no mutating surface, so an Idempotency-Key mechanism is not applicable.
+reversibility:
+  status: na
+  detail: >-
+    No write operations exist, so there is nothing to reverse (no cancel / refund
+    / void / undo surface). Not applicable.
+dry_run:
+  status: na
+  detail: Read-only API; no state-changing action to rehearse.

@@ -1,0 +1,37 @@
+generated: '2026-09-16'
+method: searched
+source: >-
+  npm (@itick/chat-core, @itick/chat-react, @itick/chat-vue),
+  https://github.com/itick-org/chat-agent-sdk, and the "AI Agent" product on
+  https://itick.org/en/pricing
+summary: >-
+  iTick ships an embeddable AI chat widget - a client-side conversational UI
+  component backed by its Agent Streaming Chat API - distinct from the data SDKs.
+  It is a ShadowDOM-isolated web component with React and Vue wrappers.
+families:
+  - name: iTick AI Chat SDK
+    description: >-
+      Embeddable financial-analysis chat agent that renders in the host page with
+      style isolation (ShadowDOM) and streams responses from iTick's agent
+      backend. Marketed as the "Financial AI Agent" / "AI Agent" product.
+    backend: https://agent.itick.org/agent/stream/v1
+    repository: https://github.com/itick-org/chat-agent-sdk
+    loaders:
+      - package: '@itick/chat-core'
+        registry: npm
+        version: 1.0.1
+        published: '2026-08-05'
+        role: Core ShadowDOM chat UI.
+      - package: '@itick/chat-react'
+        registry: npm
+        version: 1.0.1
+        published: '2026-08-05'
+        role: React 18 wrapper.
+      - package: '@itick/chat-vue'
+        registry: npm
+        version: 1.0.1
+        published: '2026-08-05'
+        role: Vue 3 wrapper.
+note: >-
+  This is an embeddable UI component, not a portable agent-skill manifest and not
+  a data-access SDK (those are in packages/itick-packages.yml).

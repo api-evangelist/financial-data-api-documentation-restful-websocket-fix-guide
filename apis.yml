@@ -1,3 +1,4 @@
+aid: itick
 name: iTick
 description: >-
   Real-time and historical financial market data across stocks, forex, indices, crypto, futures, and funds, delivered
@@ -47,19 +48,80 @@ apis:
     properties:
       - type: Documentation
         url: https://docs.itick.org/en
-      - type: Documentation
+      - type: GettingStarted
         url: https://docs.itick.org/en/getting-started
-      - type: Documentation
+      - type: APIReference
         url: https://docs.itick.org/en/api-url
       - type: LLMsTxt
         url: https://docs.itick.org/llms.txt
+      - type: LLMsTxt
+        url: llms/itick-llms.txt
       - type: MCPServer
         url: https://api.itick.org/mcp
+      - type: MCPServer
+        url: mcp/itick-mcp.yml
+      - type: Authentication
+        url: authentication/itick-authentication.yml
+      - type: Conventions
+        url: conventions/itick-conventions.yml
+      - type: ErrorCatalog
+        url: errors/itick-problem-types.yml
+      - type: RateLimits
+        url: rate-limits/itick-rate-limits.yml
+      - type: Sandbox
+        url: sandbox/itick-sandbox.yml
 maintainers:
   - FN: iTick
     url: https://itick.org/en
+    email: support@itick.org
 generated:
   by: apis.io/add
   model: claude-opus-4-8
   confidence: 95
   at: '2026-09-16T08:01:21.721Z'
+common:
+- type: DomainSecurity
+  url: security/itick-domain-security.yml
+- type: Website
+  url: https://itick.org/en
+- type: DeveloperPortal
+  url: https://itick.org/en
+- type: Documentation
+  url: https://docs.itick.org/en
+- type: APIReference
+  url: https://docs.itick.org/en/api-url
+- type: GettingStarted
+  url: https://docs.itick.org/en/getting-started
+- type: Pricing
+  url: https://itick.org/en/pricing
+- type: StatusPage
+  url: https://status.itick.org
+- type: GitHubOrganization
+  url: https://github.com/itick-org
+- type: Blog
+  url: https://itick.org/en/blog
+- type: SignUp
+  url: https://itick.org/en/dashboard
+- type: Support
+  url: https://itick.org/en/contact
+- type: TermsOfService
+  url: https://itick.org/en/terms
+- type: PrivacyPolicy
+  url: https://itick.org/en/privacy
+- type: Packages
+  url: packages/itick-packages.yml
+- type: SDKs
+  url: packages/itick-packages.yml
+- type: Components
+  url: components/itick-components.yml
+- type: Plans
+  url: plans/itick-plans-pricing.yml
+- type: Lifecycle
+  url: lifecycle/itick-lifecycle.yml
+- type: Conformance
+  url: conformance/itick-conformance.yml
+x-enrichment:
+  date: '2026-09-16'
+  status: enriched
+  artifacts_added: 14
+  pass: local-v3

@@ -1,0 +1,29 @@
+generated: '2026-09-16'
+method: searched
+source: >-
+  https://docs.itick.org/en/getting-started and the request examples in
+  https://docs.itick.org/en/rest-api/crypto/crypto-kline.md
+summary: >-
+  Single API-key scheme. Every REST and WebSocket request carries the account's
+  API Key in a `token` header. There is no OAuth, OIDC, or mTLS surface. The API
+  Key is issued per account from the iTick dashboard after Google/GitHub login.
+schemes:
+  - id: apiKeyToken
+    type: apiKey
+    in: header
+    name: token
+    description: >-
+      Per-account API Key issued from https://itick.org/en/dashboard. Sent as the
+      `token` request header on REST calls and used for WebSocket authentication.
+      In the MCP server it is supplied via the TOKEN environment variable.
+    example_docs: https://docs.itick.org/en/getting-started
+onboarding:
+  signup: https://itick.org/en/dashboard
+  method: OAuth login (Google or GitHub) to the dashboard, which issues the API Key.
+notes:
+  - >-
+    Keys are unique per account and treated as bearer credentials - iTick's docs
+    warn against sharing them.
+  - >-
+    The free-trial environment (api-free.itick.org) uses the same header-based
+    token scheme.

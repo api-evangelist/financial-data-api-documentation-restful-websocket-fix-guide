@@ -1,0 +1,33 @@
+generated: '2026-09-16'
+method: searched
+source: >-
+  https://docs.itick.org/en/api-url, https://docs.itick.org/en/getting-started,
+  https://status.itick.org, and the pricing page https://itick.org/en/pricing
+summary: >-
+  iTick publishes a live system status page but no formal versioning or
+  deprecation policy. Paths are largely unversioned, with one exception
+  (/symbol/v2/holidays). No Sunset/Deprecation (RFC 8594) headers are documented.
+versioning:
+  scheme: path-segment (partial)
+  detail: >-
+    Most endpoints are unversioned; /symbol/v2/holidays carries an explicit v2
+    segment. No documented policy governs breaking changes.
+deprecation:
+  policy: none-published
+  headers: none-documented
+  detail: No deprecation timeline, Sunset header, or migration policy was found.
+status_page:
+  url: https://status.itick.org
+  status: 200
+  detail: Live public system-status page (linked from the site header as "API status").
+support:
+  email: support@itick.org
+  business_hours: Mon-Fri 09:00-18:00 Hong Kong Time
+  channels:
+    - Telegram @iticksupport
+    - WhatsApp +852 59046663
+    - Online customer service at https://itick.org/en/contact
+sla:
+  detail: >-
+    No published SLA. Marketing cites "multi-region acceleration and link hot
+    backups" but no numeric uptime commitment.
