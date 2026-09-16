@@ -1,0 +1,65 @@
+name: iTick
+description: >-
+  Real-time and historical financial market data across stocks, forex, indices, crypto, futures, and funds, delivered
+  via REST, WebSocket, and FIX interfaces, plus a hosted MCP server and embeddable AI agent chat.
+url: >-
+  https://raw.githubusercontent.com/api-evangelist/financial-data-api-documentation-restful-websocket-fix-guide/refs/heads/main/apis.yml
+created: '2026-09-16'
+modified: '2026-09-16'
+specificationVersion: '0.21'
+tags:
+  - financial-data
+  - market-data
+  - stocks
+  - forex
+  - crypto
+  - indices
+  - futures
+  - funds
+  - real-time-data
+  - websocket
+  - fix-protocol
+  - fintech
+  - quantitative-trading
+  - mcp-server
+apis:
+  - name: iTick Market Data API
+    description: >-
+      Token-authenticated REST and WebSocket API for real-time and historical financial market data across crypto,
+      forex, indices, stock, future, and fund product lines.
+    humanURL: https://docs.itick.org/en/api-url
+    baseURL: https://api.itick.org
+    tags:
+      - financial-data
+      - market-data
+      - stocks
+      - forex
+      - crypto
+      - indices
+      - futures
+      - funds
+      - real-time-data
+      - websocket
+      - fix-protocol
+      - fintech
+      - quantitative-trading
+      - mcp-server
+    properties:
+      - type: Documentation
+        url: https://docs.itick.org/en
+      - type: Documentation
+        url: https://docs.itick.org/en/getting-started
+      - type: Documentation
+        url: https://docs.itick.org/en/api-url
+      - type: LLMsTxt
+        url: https://docs.itick.org/llms.txt
+      - type: MCPServer
+        url: https://api.itick.org/mcp
+maintainers:
+  - FN: iTick
+    url: https://itick.org/en
+generated:
+  by: apis.io/add
+  model: claude-opus-4-8
+  confidence: 95
+  at: '2026-09-16T08:01:21.721Z'
