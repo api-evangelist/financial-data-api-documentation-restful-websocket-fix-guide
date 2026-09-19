@@ -9,6 +9,21 @@ created: '2026-09-16'
 modified: '2026-09-16'
 specificationVersion: '0.21'
 tags:
+  - Financial Data
+  - Market Data
+  - Stocks
+  - Forex
+  - Crypto
+  - Indices
+  - Futures
+  - Fund
+  - Real-Time Data
+  - WebSocket
+  - FIX Protocol
+  - Fintech
+  - Quantitative Trading
+  - MCP Server
+tags_raw:
   - financial-data
   - market-data
   - stocks
@@ -31,6 +46,21 @@ apis:
     humanURL: https://docs.itick.org/en/api-url
     baseURL: https://api.itick.org
     tags:
+      - Financial Data
+      - Market Data
+      - Stocks
+      - Forex
+      - Crypto
+      - Indices
+      - Futures
+      - Fund
+      - Real-Time Data
+      - WebSocket
+      - FIX Protocol
+      - Fintech
+      - Quantitative Trading
+      - MCP Server
+    tags_raw:
       - financial-data
       - market-data
       - stocks
